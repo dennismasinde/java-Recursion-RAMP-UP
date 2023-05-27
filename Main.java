@@ -4,6 +4,20 @@ public class Main {
         System.out.println(factorial(5));
         System.out.println(fibonacci(3));
         System.out.println(triangularNumber(3));
+        System.out.println(reverseString("dennis"));
+        System.out.println(revStr("dennis"));
+    }
+
+    public static String revStr(String str) {
+        String revStr = "";
+
+        if (str.length() == 1) {
+            return str;
+        }
+        revStr = revStr.concat(String.valueOf(str.charAt(str.length()-1)));
+        revStr = revStr.concat(revStr(str.substring(0,str.length()-1)));
+
+        return revStr;
     }
 
     public static int factorial(int num) {
@@ -24,5 +38,17 @@ public class Main {
             return num;
         }
         return num + triangularNumber(num -1);
+    }
+
+    public static String reverseString(String word){
+        String wordReversed = "";
+
+        if (word.length() == 1){
+            return word;
+        } else {
+            wordReversed = wordReversed.concat(String.valueOf(word.charAt(word.length() - 1)));
+            wordReversed = wordReversed.concat(reverseString(word.substring(0,word.length() - 1)));
+        }
+        return wordReversed;
     }
 }
